@@ -1,0 +1,14 @@
+void func(void)
+{
+    return ;
+}
+void main(void)
+{
+   int x;
+   int y[5];
+   while(x<1) {
+      x=y[2.3];
+   }
+   func();
+   return ;
+}

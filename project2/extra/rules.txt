@@ -1,0 +1,76 @@
+pgm	--> d-list
+d-list	-->dclartn		A
+A	-->@
+A	-->dclartn		A
+dclartn	-->type-specfr	ID	B
+B	-->var-dclartn	
+B	-->fun-dclartn
+var-dclartn-->C
+C	-->;
+C	-->[	NUM	]	;
+fun-dclartn-->(	params	)	compnd-stmt
+type-specfr-->INT	
+type-specfr-->VOID
+params	-->VOID
+params	-->param-list
+param-list-->param	D
+D	-->,	param	D
+D	-->@
+param	-->type-specfr	ID	E
+E	-->[	]	
+E	-->@
+compnd-stmt-->{	local-dclartns	statmtn-list	}
+local-dclartn-->F
+F	-->@
+F	-->var-dclartn	F
+statmnt-list-->G
+G	-->statmnt	G
+G	-->@
+statmnt	-->exprsn-stmt
+statmnt	-->selctn-stmt
+statmnt	-->itertn-stmt
+statmnt	-->retrn-stmt
+statmnt	-->compnd-stmt
+exprsn-stmt-->exprsn
+exprsn-stmt-->;
+selctn-stmt-->if	(	exprsn	)	H
+H	-->else	statmnt
+H	-->@
+itertn-stmt-->while	(	exprsn	)	statmnt
+retrn-stmt-->RETURN	I
+I	-->;
+I	-->exprsn	;
+exprsn	-->var	=	exprsn
+exprsn	-->simple-exprsn
+var	-->ID	J
+J	-->@
+J	-->[	exprsn	]
+simple-exprsn-->add-exprsn	K
+K	-->relop	add-exprsn
+K	-->@
+relop	--><	L
+relop	-->>	L
+relop	-->=	=
+relop	-->!	=
+L	-->=
+L	-->@
+add-exprsn-->term	M
+M	-->addop	term	M
+M	-->@
+addop	-->+
+addop	-->-
+term	-->factor	N
+N	-->mulop	factor	N
+N	-->@
+mulop	-->*
+mulop	-->/
+factor	-->(	exprsn	)
+factor	-->var
+factor	-->call
+factor	-->NUM
+call	-->ID	(	args	)
+args	-->arg-list	
+args	-->@
+arg-list	-->exprsn	O
+O	-->,	exprsn	O
+O	-->@

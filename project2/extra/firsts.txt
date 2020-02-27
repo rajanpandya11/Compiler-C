@@ -1,0 +1,104 @@
+follows of O-->exprsn
+follows of arg-list -->exprsn
+follows of arg-list -->O
+follows of args-->arg-list
+follows of factor-->call
+follows of factor-->var
+follows of term-->N
+follows of term-->factor
+follows of add-exprsn-->M
+follows of add-exprsn-->term
+
+follows of relop-->L
+follows of K-->add-exprsn
+follows of simple-exprsn-->K
+follows of simple-exprsn-->add-exprsn
+follows of var-->J
+
+follows of exprsn-->simple-exprsn
+follows of I-->exprsn
+
+follows of retrn-stmt-->I
+follows of itertn-stmt-->statmt
+follows of H-->statmnt
+follows of selctn-stmt-->H
+
+follows of exprsn-stmt-->exprsn
+
+follows of statmnt-->compnd-stmt
+follows of statmnt-->retrn-stmt
+follows of statmnt-->itertn-stmt
+follows of statmnt-->selctn-stmt
+follows of statmnt-->exprsn-stmt
+follows of G-->statmnt
+
+follows of statmnt-list-->G
+follows of F-->var-dclartn
+follows of local-dclartn-->F
+follows of param-->E
+follows of D-->param
+follows of param-list-->D
+
+follows of params-->param-list
+follows of fun-dclatn-->compnf-stmt
+follows of var-dclartn-->C
+follows of B-->fun-dclartn
+follows of B-->var-dclartn
+follows of dclartn-->B
+follows of d-list-->A
+follows of 
+follows of 
+follows of 
+follows of 
+follows of 
+follows of 
+
+
+
+
+
+
+1.first(pgm) = 'int', 'void'
+2.first(d-list) = 'int', 'void'
+3.first(A) = 'int', '', 'void'
+4.first(dclartn) = 'int', 'void'
+5.first(B) = '(', ';', '['
+6.first(var-dclartn) = ';', '['
+7.first(C) = ';', '['
+8.first(fun-dclartn) = '('
+9.first(type-specfr) = 'int', 'void'
+10.first(params) = 'int', 'void'
+11.first(param-list) = 'int', 'void'
+12.first(D) = '', ','
+13.first(param) = 'int', 'void'
+14.first(E) = '', '['
+15.first(compnd-stmt) = '{'
+16.first(local-dclartns) = '', ';', '['
+17.first(F) = '', ';', '['
+18.first(statmnt-list) = '', 'return', '(', 'while', 'num', '{', ';', 'id', 'if'
+19.first(G) = '', 'return', '(', 'id', 'while', 'num', ';', '{', 'if'
+20.first(statmnt) = 'while', 'num', 'return', '(', ';', '{', 'id', 'if'
+21.first(exprsn-stmt) = '(', ';', 'num', 'id'
+22.first(selctn-stmt) = 'if'
+23.first(H) = '', 'else'
+24.first(itertn-stmt) = 'while'
+25.first(retrn-stmt) = 'return'
+26.first(I) = '(', ';', 'num', 'id'
+27.first(exprsn) = '(', 'num', 'id'
+28.first(var) = 'id'
+29.first(J) = '', '['
+30.first(simple-exprsn) = '(', 'num', 'id'
+31.first(K) = '!', '', '=', '<', '>'
+32.first(relop) = '!', '=', '<', '>'
+33.first(L) = '', '='
+34.first(add-exprsn) = '(', 'num', 'id'
+35.first(M) = '', '+', '-'
+36.first(addop) = '+', '-'
+37.first(term) = '(', 'num', 'id'
+38.first(N) = '', '*', '/'
+39.first(mulop) = '*', '/'
+40.first(factor) = '(', 'num', 'id'
+41.first(call) = 'id'
+42.first(args) = '', '(', 'num', 'id'
+43.first(arg-list) = '(', 'num', 'id'
+44.first(O) = '', ','

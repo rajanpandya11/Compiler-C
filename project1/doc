@@ -1,0 +1,45 @@
+
+
+Name: Rajan Pandya n00886248
+
+
+Class: COP4620 CONSTRUCTION OF LANGUAGE TRANSLATORS
+
+
+Project 1 Lexical Analyzer
+
+
+Files Included:
+
+1. f1.py (source file)
+2. makefile
+3. p1 (to run the source file)
+4. test (test file) (I have included .txt file too)
+5. doc (Documentation file) (I have included .txt file too)
+6. sample (output file for the given test file) (I have included .txt file too)
+
+
+How to run the Program:
+
+This program, since python language is used, does not need to execute make command.
+This program can be executed by typing './p1 test'. 
+Instead of my test file, users can use their own text or linux file as an command line argument.
+
+
+General Discription:
+
+This program accepts a file from command line. 
+It recognizes if the file is not provided in command line arguments, and prints a message.
+It splits the given file into many sentences and store them in an array. 
+One 'for loop' runs through that array, and calls a function named 'lexical' with passing one line at a time. 
+The 'lexical' passes the same string to the function called 'findcmnts' before executing any code. 
+This function returns the string to the 'lexical' after removing comments including nested ones.
+There is a global variable named 'counter' which keeps track of the number of multiline comments.
+Upon receiving string from 'findcmnts', the 'lexical' applies different regular expressions on the string, and 
+seperates them into tokens, and prints them.
+	i.e id, num, operators, parenthesis, keywords, etc.
+The 'lexical' uses the function 'findkeys' to seperate keywords from ids. 
+It calls 'findkeys' whenever it finds an id, and 'findkeys' determines and prints if it is an id or a keyword.
+Function 'findkeys' uses a global variable 'keywords' which has all the keywords stored in an array.
+The 'lexical' recognizes all different tokens and error, if any, with the help of the regular expressions, 
+	and it prints them one by one in the same order they came. 

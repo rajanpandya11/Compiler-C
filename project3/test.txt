@@ -1,0 +1,13 @@
+void func(void)
+{
+    return ;
+}
+void main(void)
+{
+   int x;
+   while(x<1) {
+      x=x+5;
+   }
+   func();
+   return ;
+}

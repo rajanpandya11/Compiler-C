@@ -1,0 +1,8 @@
+/*/**/
+Line1-abcint Line2-else Line3-abcdreturn
+Line4 */ Line5 Line6 jsv
+INT g 4 cd (int u, int v)      {
+iiii = 3@33;
+b = afnr + 4*///3 + ea
+else == ret_urn gcd(vxxxxxxvvvvv, u-u/v*v);
+return void while       void main()

@@ -1,0 +1,11 @@
+a.out: lex.yy.c y.tab.c
+	gcc lex.yy.c y.tab.c -lfl
+
+lex.yy.c: y.tab.c myscanner.l
+	lex myscanner.l
+
+y.tab.c: myscanner.y
+	yacc -d myscanner.y
+
+clean: 
+	rm -f lex.yy.c y.tab.c y.tab.h 

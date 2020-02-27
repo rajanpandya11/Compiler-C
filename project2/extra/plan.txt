@@ -1,0 +1,21 @@
+{
+	if (i==0)
+		return ;
+}
+selctn-stmt -> if ( exprsn ) H
+H -> else statmnt | EPSILON	
+exprsn -> var = exprsn | simple-exprsn
+var -> id J
+J -> EPSILON | [ exprsn ]	
+simple-exprsn -> add-exprsn K
+K -> relop	add-exprsn | EPSILON	
+relop -> < L | > L | = = | ! =
+L -> = | EPSILON	
+add-exprsn -> term M
+M -> addop term M | EPSILON		
+addop -> + | -
+term -> factor N
+N -> mulop factor N | EPSILON		
+mulop -> * | /
+factor -> (	exprsn ) | var | call | num
+call -> id ( args )	

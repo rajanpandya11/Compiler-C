@@ -1,0 +1,330 @@
+ void main(void)    /* g _t0 */
+ {
+ int q;
+ int b;f
+         b = b + q;
+ }
+
+// *******************************
+
+ int q;
+ void monkey(void)
+ {
+ int q;
+ void a[4];
+ int b;
+ void c;
+
+ b=b/2;
+ while (b==3)
+ {
+ int x;
+ x=q+2;
+ }
+ if (c==b)
+ {
+ a[car(1)]=3;
+ a[2+1]=3;
+ c=car(4);
+ }
+
+ }
+
+// *******************************
+
+ int d;
+
+ int car(int j)
+ {
+ int q[3];
+
+ q=j+4;
+ void) {
+    int x;
+    float y;
+    if (x  y)
+    {
+       x = 5;hint: prob with =
+    }
+ }
+
+
+ int main(int b)
+ {
+    int a;
+    int b;
+    int c;
+    b = a + c * b; hint: prob with =
+ }
+
+
+//*******************************
+
+
+
+ int main(void)
+ { /*hint: compound-stmt should here go empty*/
+ }
+
+//*******************************
+
+ int main(void)
+ {
+
+    int x;
+
+    x = 0; //hint: prob with =
+
+ }
+
+//*******************************
+
+ void main(int x)
+ {
+    int x;
+    x = 0; hint: prob with =
+    while(x == 0)
+    {
+        x = 5;
+    }
+ }
+
+//*******************************
+
+ int main(int a)
+ {
+
+    int x;
+
+    x = 0; //hint: prob with =
+    if(x + 0)
+    {
+    }
+
+ }
+
+//*******************************
+
+ int main(int x)
+ {
+
+    int a;
+    int b;
+    int c;
+
+    a = b = c;
+
+ }
+
+//*******************************
+
+ int main(int x)
+ {
+
+    int a[15];
+    int b;
+    int c;
+
+     b = c * x + a[b] / c;
+
+ }
+
+//*******************************
+
+ int main(int x)
+ {
+
+    int a;
+    int b;
+    int c;
+    int d;
+
+    a = b = c = d + 3;
+
+ }
+
+//*******************************
+
+ int main(void)
+ {
+ if (this==10) {
+  that[this] = 10; // hint: prob with =
+ }
+
+
+ }
+
+//*******************************
+
+ int gcd (int u, int v)
+ {       if (v == 0) return u ;
+         else return gcd(v,u-u/v*v);
+ }
+
+ void main(int x)
+ {       int x; int y;
+         x = input(); y = input();
+         ouput(gcd(x,y));
+ }
+
+//*******************************
+
+ int main(void)
+ {
+    int a[10];
+    int x[10];
+    int y;
+    int z;
+    int w;
+ x[3] = y+z;
+ x[y]=y=z+5;
+ x[y+z+w];
+ a[y=x+z*y]=b+c;
+ }
+
+//*******************************
+
+ void main(void)
+ {                      /* gt24 */
+   int x;
+   int y;
+   int m;
+
+   if(x == 5)
+   {
+      y = 7;
+      y = x / m;
+   }
+   else
+   {
+        m = 8 + m;
+   }
+ }
+
+//*******************************
+
+ void monkey(void)
+ {                        /* gt25 */
+    int q;
+    void a[4];
+    int b;
+    void c;
+
+    b=b/2;
+    while (b==3)
+    {
+       int x;
+       x=q+2;
+    }
+    if (c==b)
+    {
+       a[car(1)]=3;
+       a[2+1]=3;
+       c=car(4);
+    }
+ }
+
+ int d;
+ void main(void)
+ {
+    int q[3];
+    q=j+4;
+ }
+
+//*******************************
+
+ int q;
+ void monkey(void)
+ {
+    int q;
+    void a[4];
+    int b;
+    void c;
+
+    b=b/2;
+    while (b==3)
+    {
+       int x;
+       x=q+2;
+    }
+    if (c==b)
+    {
+       a[car(1)]=3;
+       a[2+1]=3;
+       c=car(4);
+    }
+
+ }
+
+ int d;
+
+ int car(int j)
+ {
+    int q[3];
+
+    q=j+4;
+ }
+
+
+
+ void main(void) /* gt27 */
+ {
+    int q;
+    int a[4];
+    int b;
+         b = b + q + a[1];
+ }
+
+//*******************************
+
+ void main(void)
+ {
+    void i;
+    void j;
+    car (i, j);
+ }
+
+
+ int car(void x, void y)
+ {
+    int q;
+
+    q=x+4;
+
+    return q;
+ }
+
+//*******************************
+
+ int main(int b)
+ {
+    int a;
+    int b;
+    int c;
+    b = 5 * (x(a,b,c));
+
+ }
+
+//*******************************
+
+ int main(int b)
+ {
+    float a;
+    float b;
+    float c;
+    b = 5.32 * c;
+
+ }
+
+//*******************************
+
+ int main(int b)
+ {
+    float a[10];
+    float b;
+    float c;
+    int i;
+    b = 5.32E02 / c + a[i];
+
+ }
+

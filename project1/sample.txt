@@ -1,0 +1,81 @@
+Input:  /*/**/
+
+
+
+Input:  Line1-abcint Line2-else Line3-abcdreturn
+
+
+
+Input:  Line4 */ Line5 Line6 jsv
+id: Line
+error: 5
+id: Line
+error: 6
+id: jsv
+
+
+Input:  INT g 4 cd (int u, int v)      {
+id: INT
+id: g
+num: 4
+id: cd
+ (
+keyword: int
+id: u
+ ,
+keyword: int
+id: v
+ )
+ {
+
+
+Input:  iiii = 3@33;
+id: iiii
+op: =
+num: 3
+error: @33
+ ;
+
+
+Input:  b += afnr + 43 + ea
+id: b
+op: +=
+id: afnr
+op: +
+num: 43
+op: +
+id: ea
+
+
+Input:  else == ret_urn gcd(vxxxxxxvvvvv, u-u/v*v);
+keyword: else
+op: ==
+id: ret
+error: _urn
+id: gcd
+ (
+id: vxxxxxxvvvvv
+ ,
+id: u
+op: -
+id: u
+op: /
+id: v
+op: *
+id: v
+ )
+ ;
+
+
+Input:  return void while       void main()
+keyword: return
+keyword: void
+keyword: while
+keyword: void
+id: main
+ (
+ )
+
+
+Input:  4.556
+float: 4.556

@@ -1,0 +1,557 @@
+#!/bin/sh
+# This is a shell archive (produced by GNU sharutils 4.7).
+# To extract the files from this archive, save it to some FILE, remove
+# everything before the `#!/bin/sh' line above, then type `sh FILE'.
+#
+lock_dir=_sh15787
+# Made on 2016-09-23 15:35 EDT by <n00886248@osprey.unfcsd.unf.edu>.
+# Source directory was `/home/48/n00886248/temp'.
+#
+# Existing files will *not* be overwritten, unless `-c' is specified.
+#
+# This shar contains:
+# length mode       name
+# ------ ---------- ------------------------------------------
+#   1961 -rw-r--r-- doc
+#   1961 -rw-r--r-- doc.txt
+#     55 -rwxr-x--- makefile
+#     28 -rwxr-x--- p1
+#    808 -rw-r--r-- sample
+#    808 -rw-r--r-- sample.txt
+#    223 -rw-r--r-- test
+#    223 -rw-r--r-- test.txt
+#   3783 -rwxr-x--- f1.py
+#
+MD5SUM=${MD5SUM-md5sum}
+f=`${MD5SUM} --version | egrep '^md5sum .*(core|text)utils'`
+test -n "${f}" && md5check=true || md5check=false
+${md5check} || \
+  echo 'Note: not verifying md5sums.  Consider installing GNU coreutils.'
+save_IFS="${IFS}"
+IFS="${IFS}:"
+gettext_dir=FAILED
+locale_dir=FAILED
+first_param="$1"
+for dir in $PATH
+do
+  if test "$gettext_dir" = FAILED && test -f $dir/gettext \
+     && ($dir/gettext --version >/dev/null 2>&1)
+  then
+    case `$dir/gettext --version 2>&1 | sed 1q` in
+      *GNU*) gettext_dir=$dir ;;
+    esac
+  fi
+  if test "$locale_dir" = FAILED && test -f $dir/shar \
+     && ($dir/shar --print-text-domain-dir >/dev/null 2>&1)
+  then
+    locale_dir=`$dir/shar --print-text-domain-dir`
+  fi
+done
+IFS="$save_IFS"
+if test "$locale_dir" = FAILED || test "$gettext_dir" = FAILED
+then
+  echo=echo
+else
+  TEXTDOMAINDIR=$locale_dir
+  export TEXTDOMAINDIR
+  TEXTDOMAIN=sharutils
+  export TEXTDOMAIN
+  echo="$gettext_dir/gettext -s"
+fi
+if (echo "testing\c"; echo 1,2,3) | grep c >/dev/null
+then if (echo -n test; echo 1,2,3) | grep n >/dev/null
+     then shar_n= shar_c='
+'
+     else shar_n=-n shar_c= ; fi
+else shar_n= shar_c='\c' ; fi
+f=shar-touch.$$
+st1=200112312359.59
+st2=123123592001.59
+st2tr=123123592001.5 # old SysV 14-char limit
+st3=1231235901
+
+if touch -am -t ${st1} ${f} >/dev/null 2>&1 && \
+   test ! -f ${st1} && test -f ${f}; then
+  shar_touch='touch -am -t $1$2$3$4$5$6.$7 "$8"'
+
+elif touch -am ${st2} ${f} >/dev/null 2>&1 && \
+   test ! -f ${st2} && test ! -f ${st2tr} && test -f ${f}; then
+  shar_touch='touch -am $3$4$5$6$1$2.$7 "$8"'
+
+elif touch -am ${st3} ${f} >/dev/null 2>&1 && \
+   test ! -f ${st3} && test -f ${f}; then
+  shar_touch='touch -am $3$4$5$6$2 "$8"'
+
+else
+  shar_touch=:
+  echo
+  ${echo} 'WARNING: not restoring timestamps.  Consider getting and'
+  ${echo} 'installing GNU `touch'\'', distributed in GNU coreutils...'
+  echo
+fi
+rm -f ${st1} ${st2} ${st2tr} ${st3} ${f}
+#
+if test ! -d ${lock_dir}
+then : ; else ${echo} 'lock directory '${lock_dir}' exists'
+  exit 1
+fi
+if mkdir ${lock_dir}
+then ${echo} 'x - created lock directory `'${lock_dir}\''.'
+else ${echo} 'x - failed to create lock directory `'${lock_dir}\''.'
+  exit 1
+fi
+# ============= doc ==============
+if test -f 'doc' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING doc (file already exists)'
+else
+${echo} 'x - extracting doc (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'doc' &&
+X
+X
+Name: Rajan Pandya n00886248
+X
+X
+Class: COP4620 CONSTRUCTION OF LANGUAGE TRANSLATORS
+X
+X
+Project 1 Lexical Analyzer
+X
+X
+Files Included:
+X
+1. f1.py (source file)
+2. makefile
+3. p1 (to run the source file)
+4. test (test file) (I have included .txt file too)
+5. doc (Documentation file) (I have included .txt file too)
+6. sample (output file for the given test file) (I have included .txt file too)
+X
+X
+How to run the Program:
+X
+This program, since python language is used, does not need to execute make command.
+This program can be executed by typing './p1 test'. 
+Instead of my test file, users can use their own text or linux file as an command line argument.
+X
+X
+General Discription:
+X
+This program accepts a file from command line. 
+It recognizes if the file is not provided in command line arguments, and prints a message.
+It splits the given file into many sentences and store them in an array. 
+One 'for loop' runs through that array, and calls a function named 'lexical' with passing one line at a time. 
+The 'lexical' passes the same string to the function called 'findcmnts' before executing any code. 
+This function returns the string to the 'lexical' after removing comments including nested ones.
+There is a global variable named 'counter' which keeps track of the number of multiline comments.
+Upon receiving string from 'findcmnts', the 'lexical' applies different regular expressions on the string, and 
+seperates them into tokens, and prints them.
+X	i.e id, num, operators, parenthesis, keywords, etc.
+The 'lexical' uses the function 'findkeys' to seperate keywords from ids. 
+It calls 'findkeys' whenever it finds an id, and 'findkeys' determines and prints if it is an id or a keyword.
+Function 'findkeys' uses a global variable 'keywords' which has all the keywords stored in an array.
+The 'lexical' recognizes all different tokens and error, if any, with the help of the regular expressions, 
+X	and it prints them one by one in the same order they came. 
+SHAR_EOF
+  (set 20 16 09 23 15 32 25 'doc'; eval "$shar_touch") &&
+  chmod 0644 'doc'
+if test $? -ne 0
+then ${echo} 'restore of doc failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'doc: MD5 check failed'
+       ) << \SHAR_EOF
+56500ec1d82ebad34258032cea6d74a2  doc
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'doc'` -ne 1961 && \
+  ${echo} 'restoration warning:  size of doc is not 1961'
+  fi
+fi
+# ============= doc.txt ==============
+if test -f 'doc.txt' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING doc.txt (file already exists)'
+else
+${echo} 'x - extracting doc.txt (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'doc.txt' &&
+X
+X
+Name: Rajan Pandya n00886248
+X
+X
+Class: COP4620 CONSTRUCTION OF LANGUAGE TRANSLATORS
+X
+X
+Project 1 Lexical Analyzer
+X
+X
+Files Included:
+X
+1. f1.py (source file)
+2. makefile
+3. p1 (to run the source file)
+4. test (test file) (I have included .txt file too)
+5. doc (Documentation file) (I have included .txt file too)
+6. sample (output file for the given test file) (I have included .txt file too)
+X
+X
+How to run the Program:
+X
+This program, since python language is used, does not need to execute make command.
+This program can be executed by typing './p1 test'. 
+Instead of my test file, users can use their own text or linux file as an command line argument.
+X
+X
+General Discription:
+X
+This program accepts a file from command line. 
+It recognizes if the file is not provided in command line arguments, and prints a message.
+It splits the given file into many sentences and store them in an array. 
+One 'for loop' runs through that array, and calls a function named 'lexical' with passing one line at a time. 
+The 'lexical' passes the same string to the function called 'findcmnts' before executing any code. 
+This function returns the string to the 'lexical' after removing comments including nested ones.
+There is a global variable named 'counter' which keeps track of the number of multiline comments.
+Upon receiving string from 'findcmnts', the 'lexical' applies different regular expressions on the string, and 
+seperates them into tokens, and prints them.
+X	i.e id, num, operators, parenthesis, keywords, etc.
+The 'lexical' uses the function 'findkeys' to seperate keywords from ids. 
+It calls 'findkeys' whenever it finds an id, and 'findkeys' determines and prints if it is an id or a keyword.
+Function 'findkeys' uses a global variable 'keywords' which has all the keywords stored in an array.
+The 'lexical' recognizes all different tokens and error, if any, with the help of the regular expressions, 
+X	and it prints them one by one in the same order they came. 
+SHAR_EOF
+  (set 20 16 09 23 15 33 23 'doc.txt'; eval "$shar_touch") &&
+  chmod 0644 'doc.txt'
+if test $? -ne 0
+then ${echo} 'restore of doc.txt failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'doc.txt: MD5 check failed'
+       ) << \SHAR_EOF
+56500ec1d82ebad34258032cea6d74a2  doc.txt
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'doc.txt'` -ne 1961 && \
+  ${echo} 'restoration warning:  size of doc.txt is not 1961'
+  fi
+fi
+# ============= makefile ==============
+if test -f 'makefile' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING makefile (file already exists)'
+else
+${echo} 'x - extracting makefile (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'makefile' &&
+all:
+X	@echo "no makefile necessary, project in python"
+SHAR_EOF
+  (set 20 16 09 19 14 12 26 'makefile'; eval "$shar_touch") &&
+  chmod 0750 'makefile'
+if test $? -ne 0
+then ${echo} 'restore of makefile failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'makefile: MD5 check failed'
+       ) << \SHAR_EOF
+55c49ed0a041c39992e694906cfb375e  makefile
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'makefile'` -ne 55 && \
+  ${echo} 'restoration warning:  size of makefile is not 55'
+  fi
+fi
+# ============= p1 ==============
+if test -f 'p1' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING p1 (file already exists)'
+else
+${echo} 'x - extracting p1 (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'p1' &&
+#!/bin/bash
+python f1.py $1
+SHAR_EOF
+  (set 20 16 09 20 17 58 52 'p1'; eval "$shar_touch") &&
+  chmod 0750 'p1'
+if test $? -ne 0
+then ${echo} 'restore of p1 failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'p1: MD5 check failed'
+       ) << \SHAR_EOF
+ecb3075a9015608c383128f3a448644b  p1
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'p1'` -ne 28 && \
+  ${echo} 'restoration warning:  size of p1 is not 28'
+  fi
+fi
+# ============= sample ==============
+if test -f 'sample' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING sample (file already exists)'
+else
+${echo} 'x - extracting sample (binary)'
+  sed 's/^X//' << 'SHAR_EOF' | uudecode &&
+begin 600 sample
+M26YP=70Z("`O*B\J*B\-"@T*#0H-"DEN<'5T.B`@3&EN93$M86)C:6YT($QI
+M;F4R+65L<V4@3&EN93,M86)C9')E='5R;@T*#0H-"@T*26YP=70Z("!,:6YE
+M-"`J+R!,:6YE-2!,:6YE-B!J<W8-"FED.B!,:6YE#0IE<G)O<CH@-0T*:60Z
+M($QI;F4-"F5R<F]R.B`V#0II9#H@:G-V#0H-"@T*26YP=70Z("!)3E0@9R`T
+M(&-D("AI;G0@=2P@:6YT('8I("`@("`@>PT*:60Z($E.5`T*:60Z(&<-"FYU
+M;3H@-`T*:60Z(&-D#0H@*`T*:V5Y=V]R9#H@:6YT#0II9#H@=0T*("P-"FME
+M>7=O<F0Z(&EN=`T*:60Z('8-"B`I#0H@>PT*#0H-"DEN<'5T.B`@:6EI:2`]
+M(#-`,S,[#0II9#H@:6EI:0T*;W`Z(#T-"FYU;3H@,PT*97)R;W(Z($`S,PT*
+M(#L-"@T*#0I);G!U=#H@(&(@*ST@869N<B`K(#0S("L@96$-"FED.B!B#0IO
+M<#H@*ST-"FED.B!A9FYR#0IO<#H@*PT*;G5M.B`T,PT*;W`Z("L-"FED.B!E
+M80T*#0H-"DEN<'5T.B`@96QS92`]/2!R971?=7)N(&=C9"AV>'AX>'AX=G9V
+M=G8L('4M=2]V*G8I.PT*:V5Y=V]R9#H@96QS90T*;W`Z(#T]#0II9#H@<F5T
+M#0IE<G)O<CH@7W5R;@T*:60Z(&=C9`T*("@-"FED.B!V>'AX>'AX=G9V=G8-
+M"B`L#0II9#H@=0T*;W`Z("T-"FED.B!U#0IO<#H@+PT*:60Z('8-"F]P.B`J
+M#0II9#H@=@T*("D-"B`[#0H-"@T*26YP=70Z("!R971U<FX@=F]I9"!W:&EL
+M92`@("`@("!V;VED(&UA:6XH*0T*:V5Y=V]R9#H@<F5T=7)N#0IK97EW;W)D
+M.B!V;VED#0IK97EW;W)D.B!W:&EL90T*:V5Y=V]R9#H@=F]I9`T*:60Z(&UA
+K:6X-"B`H#0H@*0T*#0H-"DEN<'5T.B`@-"XU-38-"F9L;V%T.B`T+C4U-FUA
+`
+end
+SHAR_EOF
+  (set 20 16 09 23 15 21 15 'sample'; eval "$shar_touch") &&
+  chmod 0644 'sample'
+if test $? -ne 0
+then ${echo} 'restore of sample failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'sample: MD5 check failed'
+       ) << \SHAR_EOF
+88b5022f0476a586051e7d1845f377c7  sample
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'sample'` -ne 808 && \
+  ${echo} 'restoration warning:  size of sample is not 808'
+  fi
+fi
+# ============= sample.txt ==============
+if test -f 'sample.txt' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING sample.txt (file already exists)'
+else
+${echo} 'x - extracting sample.txt (binary)'
+  sed 's/^X//' << 'SHAR_EOF' | uudecode &&
+begin 600 sample.txt
+M26YP=70Z("`O*B\J*B\-"@T*#0H-"DEN<'5T.B`@3&EN93$M86)C:6YT($QI
+M;F4R+65L<V4@3&EN93,M86)C9')E='5R;@T*#0H-"@T*26YP=70Z("!,:6YE
+M-"`J+R!,:6YE-2!,:6YE-B!J<W8-"FED.B!,:6YE#0IE<G)O<CH@-0T*:60Z
+M($QI;F4-"F5R<F]R.B`V#0II9#H@:G-V#0H-"@T*26YP=70Z("!)3E0@9R`T
+M(&-D("AI;G0@=2P@:6YT('8I("`@("`@>PT*:60Z($E.5`T*:60Z(&<-"FYU
+M;3H@-`T*:60Z(&-D#0H@*`T*:V5Y=V]R9#H@:6YT#0II9#H@=0T*("P-"FME
+M>7=O<F0Z(&EN=`T*:60Z('8-"B`I#0H@>PT*#0H-"DEN<'5T.B`@:6EI:2`]
+M(#-`,S,[#0II9#H@:6EI:0T*;W`Z(#T-"FYU;3H@,PT*97)R;W(Z($`S,PT*
+M(#L-"@T*#0I);G!U=#H@(&(@*ST@869N<B`K(#0S("L@96$-"FED.B!B#0IO
+M<#H@*ST-"FED.B!A9FYR#0IO<#H@*PT*;G5M.B`T,PT*;W`Z("L-"FED.B!E
+M80T*#0H-"DEN<'5T.B`@96QS92`]/2!R971?=7)N(&=C9"AV>'AX>'AX=G9V
+M=G8L('4M=2]V*G8I.PT*:V5Y=V]R9#H@96QS90T*;W`Z(#T]#0II9#H@<F5T
+M#0IE<G)O<CH@7W5R;@T*:60Z(&=C9`T*("@-"FED.B!V>'AX>'AX=G9V=G8-
+M"B`L#0II9#H@=0T*;W`Z("T-"FED.B!U#0IO<#H@+PT*:60Z('8-"F]P.B`J
+M#0II9#H@=@T*("D-"B`[#0H-"@T*26YP=70Z("!R971U<FX@=F]I9"!W:&EL
+M92`@("`@("!V;VED(&UA:6XH*0T*:V5Y=V]R9#H@<F5T=7)N#0IK97EW;W)D
+M.B!V;VED#0IK97EW;W)D.B!W:&EL90T*:V5Y=V]R9#H@=F]I9`T*:60Z(&UA
+K:6X-"B`H#0H@*0T*#0H-"DEN<'5T.B`@-"XU-38-"F9L;V%T.B`T+C4U-FUA
+`
+end
+SHAR_EOF
+  (set 20 16 09 23 15 21 15 'sample.txt'; eval "$shar_touch") &&
+  chmod 0644 'sample.txt'
+if test $? -ne 0
+then ${echo} 'restore of sample.txt failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'sample.txt: MD5 check failed'
+       ) << \SHAR_EOF
+88b5022f0476a586051e7d1845f377c7  sample.txt
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'sample.txt'` -ne 808 && \
+  ${echo} 'restoration warning:  size of sample.txt is not 808'
+  fi
+fi
+# ============= test ==============
+if test -f 'test' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING test (file already exists)'
+else
+${echo} 'x - extracting test (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'test' &&
+/*/**/
+Line1-abcint Line2-else Line3-abcdreturn
+Line4 */ Line5 Line6 jsv
+INT g 4 cd (int u, int v)      {
+iiii = 3@33;
+b = afnr + 4*///3 + ea
+else == ret_urn gcd(vxxxxxxvvvvv, u-u/v*v);
+return void while       void main()
+X
+SHAR_EOF
+  (set 20 16 09 23 13 41 47 'test'; eval "$shar_touch") &&
+  chmod 0644 'test'
+if test $? -ne 0
+then ${echo} 'restore of test failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'test: MD5 check failed'
+       ) << \SHAR_EOF
+cee585d2638265ca7e0dcf93f5f3a5ec  test
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'test'` -ne 223 && \
+  ${echo} 'restoration warning:  size of test is not 223'
+  fi
+fi
+# ============= test.txt ==============
+if test -f 'test.txt' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING test.txt (file already exists)'
+else
+${echo} 'x - extracting test.txt (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'test.txt' &&
+/*/**/
+Line1-abcint Line2-else Line3-abcdreturn
+Line4 */ Line5 Line6 jsv
+INT g 4 cd (int u, int v)      {
+iiii = 3@33;
+b = afnr + 4*///3 + ea
+else == ret_urn gcd(vxxxxxxvvvvv, u-u/v*v);
+return void while       void main()
+X
+SHAR_EOF
+  (set 20 16 09 23 13 41 47 'test.txt'; eval "$shar_touch") &&
+  chmod 0644 'test.txt'
+if test $? -ne 0
+then ${echo} 'restore of test.txt failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'test.txt: MD5 check failed'
+       ) << \SHAR_EOF
+cee585d2638265ca7e0dcf93f5f3a5ec  test.txt
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'test.txt'` -ne 223 && \
+  ${echo} 'restoration warning:  size of test.txt is not 223'
+  fi
+fi
+# ============= f1.py ==============
+if test -f 'f1.py' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING f1.py (file already exists)'
+else
+${echo} 'x - extracting f1.py (binary)'
+  sed 's/^X//' << 'SHAR_EOF' | uudecode &&
+begin 600 f1.py
+M:6UP;W)T(')E#0II;7!O<G0@<WES#0H-"@T*8V]U;G1E<B`](#`-"FME>7=O
+M<F1S(#T@6R=E;'-E)RP@)VEF)RP@)W=H:6QE)RP@)W)E='5R;B<L("=I;G0G
+M+"`G9FQO870G+"`G=F]I9"==#0H-"@T*9&5F(&9I;F1C;6YT<RAL;&EN92DZ
+M#0H@("`@9VQO8F%L(&-O=6YT97(-"B`@("!C;W5N=&5R,B`](&-O=6YT97(-
+M"B`@("!P870S(#T@<F4N8V]M<&EL92@G*#\Z*%M<+UU;7"I=*7PH6UPJ75M<
+M+UTI?"A;7"]=6UPO72DI)RD-"B`@("!M;&-S(#T@6UT-"B`@("!S;&,@/2!;
+M70T*("`@(&UL8V4@/2!;70T*("`@(&EN9'AS(#T@6UT-"B`@("!B;"`]($9A
+M;'-E#0H@("`@:70@/2!R92YF:6YD:71E<BAP870S+"!L;&EN92D-"B`@("!C
+M:&%N9V4@/2!&86QS90T*("`@(&9O<B!M871C:"!I;B!I=#H-"B`@("`@("`@
+M:68@;6%T8V@N9W)O=7`H*3H-"B`@("`@("`@("`@(&EN9'AS+F%P<&5N9"AM
+M871C:"YS=&%R="@I*0T*("`@("`@("`@("`@:68@;6%T8V@N9W)O=7`H*2`]
+M/2`G+RHG.@T*("`@("`@("`@("`@("`@(&UL8W,N87!P96YD*&UA=&-H+F=R
+M;W5P*"DI#0H@("`@("`@("`@("`@("`@;6QC92YA<'!E;F0H)R<I#0H@("`@
+M("`@("`@("`@("`@<VQC+F%P<&5N9"@G)RD-"B`@("`@("`@("`@("`@("!C
+M;W5N=&5R("L](#$-"B`@("`@("`@("`@(&5L:68@;6%T8V@N9W)O=7`H*2`]
+M/2`G*B\G.@T*("`@("`@("`@("`@("`@(&UL8W,N87!P96YD*"<G*0T*("`@
+M("`@("`@("`@("`@(&UL8V4N87!P96YD*&UA=&-H+F=R;W5P*"DI#0H@("`@
+M("`@("`@("`@("`@<VQC+F%P<&5N9"@G)RD-"B`@("`@("`@("`@("`@("!I
+M9B!C;W5N=&5R(#X@,#H-"B`@("`@("`@("`@("`@("`@("`@8V]U;G1E<B`M
+M/2`Q#0H@("`@("`@("`@("`@("`@("`@(&-H86YG92`](%1R=64-"B`@("`@
+M("`@("`@(&5L<V4Z#0H@("`@("`@("`@("`@("`@;6QC<RYA<'!E;F0H)R<I
+M#0H@("`@("`@("`@("`@("`@;6QC92YA<'!E;F0H)R<I#0H@("`@("`@("`@
+M("`@("`@<VQC+F%P<&5N9"AM871C:"YG<F]U<"@I*0T*("`@("`@("`@("`@
+M8FP@/2!4<G5E#0H@("`@;G=L:6YE(#T@)R<-"B`@("!O;F-E(#T@5')U90T*
+M("`@(&EF(&YO="!B;#H-"B`@("`@("`@:68@8V]U;G1E<B`^(#`Z#0H@("`@
+M("`@("`@("!R971U<FX@)R<-"B`@("`@("`@<F5T=7)N(&QL:6YE#0H@("`@
+M96QI9B!L96XH:6YD>',I(#T](#$@86YD(&UL8V5;,%T@86YD(&-O=6YT97(@
+M/3T@,"!A;F0@;F]T(&-H86YG93H-"B`@("`@("`@<F5T=7)N(&QL:6YE#0H@
+M("`@96QS93H-"B`@("`@("`@:2`](#`-"B`@("`@("`@9F]R(&EN9&5X(&EN
+M(&EN9'AS.@T*("`@("`@("`@("`@:68@;6QC<UMI72!O<B!S;&-;:5TZ#0H@
+M("`@("`@("`@("`@("`@:68@;VYC93H-"B`@("`@("`@("`@("`@("`@("`@
+M;G=L:6YE("L](&QL:6YE6SII;F1E>%T-"B`@("`@("`@("`@("`@("`@("`@
+M;VYC92`]($9A;'-E#0H@("`@("`@("`@("`@("`@:68@;6QC<SH-"B`@("`@
+M("`@("`@("`@("`@("`@8V]U;G1E<C(@*ST@,0T*("`@("`@("`@("`@96QI
+M9B!M;&-E6VE=.@T*("`@("`@("`@("`@("`@(&EF(&-O=6YT97(R(#T](#`Z
+M#0H@("`@("`@("`@("`@("`@("`@(&EF(&D@*R`Q(#T](&QE;BAI;F1X<RDZ
+M#0H@("`@("`@("`@("`@("`@("`@("`@("!N=VQI;F4@*ST@;&QI;F5;:6YD
+M97@Z70T*("`@("`@("`@("`@("`@("`@("!E;'-E.@T*("`@("`@("`@("`@
+M("`@("`@("`@("`@;G=L:6YE("L](&QL:6YE6VEN9&5X.FEN9'AS6VD@*R`Q
+M75T-"B`@("`@("`@("`@("`@("!I9B!C;W5N=&5R,B`^(#`Z#0H@("`@("`@
+M("`@("`@("`@("`@(&-O=6YT97(R("T](#$-"B`@("`@("`@("`@("`@("`@
+M("`@:68@8V]U;G1E<C(@/3T@,#H-"B`@("`@("`@("`@("`@("`@("`@("`@
+M(&EF(&D@*R`Q(#T](&QE;BAI;F1X<RDZ#0H@("`@("`@("`@("`@("`@("`@
+M("`@("`@("`@;G=L:6YE("L](&QL:6YE6VEN9&5X("L@,CI=#0H@("`@("`@
+M("`@("`@("`@("`@("`@("!E;'-E.@T*("`@("`@("`@("`@("`@("`@("`@
+M("`@("`@(&YW;&EN92`K/2!L;&EN95MI;F1E>"`K(#(Z:6YD>'-;:2`K(#%=
+M70T*("`@("`@("`@("`@:2`K/2`Q#0H@("`@<F5T=7)N(&YW;&EN90T*#0H-
+M"F1E9B!L97AI8V%L*&QL:6YE*3H-"B`@("!L;&EN92`](&9I;F1C;6YT<RAL
+M;&EN92D-"B`@("!I9B!L96XH;&QI;F4I(#X@,#H-"B`@("`@("`@9&5S8R`]
+M(%LG97)R;W(Z)RP@)VYU;3HG+"`G9FQO870Z)RP@)V5R<F]R.B<L("=O<#HG
+M+"`G)RP@)R<L("=O<#HG+"`G:60Z)UT-"B`@("`@("`@:2`](#`-"B`@("`@
+M("`@<&%T,B`](')E+F-O;7!I;&4H)R<G*#\Z*"@_/#U;02U:82UZ72E;7D$M
+M6F$M>EPA7#Q</EQ;7%U<>UQ]7"A<*5P]7"M<+5PL7"I<+UQS75M>7'-=*BE\
+M(",@,0T*("`@("`@("`@("`@("`@("`@("`@("`@("`@("`H*#\\/5QS*5M<
+M9%TK*7P@(R`R#0H@("`@("`@("`@("`@("`@("`@("`@("`@("`@("A;7&1=
+M*UM<+EU;7&1=*RE\(",@,PT*("`@("`@("`@("`@("`@("`@("`@("`@("`@
+M("`H*#\\/5QD*5M>,"TY7'-<.UPL7"E<*%Q=7%M<>UQ]7"I<*UPM7"]=6UY<
+M.UPL7"E<*%Q=7%M<>UQ]72LI?"`C-`T*("`@("`@("`@("`@("`@("`@("`@
+M("`@("`@("`H6UPK7"U<*EPO7#U<(5U;7#U=*7P@(R`U#0H@("`@("`@("`@
+M("`@("`@("`@("`@("`@("`@("A;7"Q<.UTI?"`C(#8-"B`@("`@("`@("`@
+M("`@("`@("`@("`@("`@("`@*%M<6UQ=7'M<?5PH7"E=*7P@(R`W#0H@("`@
+M("`@("`@("`@("`@("`@("`@("`@("`@("A;7#U<*UPM7"I<+UTI?"`C(#@-
+M"B`@("`@("`@("`@("`@("`@("`@("`@("`@("`@*%M!+5IA+7I=*RDI)R<G
+M+"!R92Y8*2`@(R`Y#0H@("`@("`@(&ET(#T@<F4N9FEN9&%L;"AP870R+"!L
+M;&EN92D-"B`@("`@("`@9F]R(&UA=&-H(&EN(&ET.@T*("`@("`@("`@("`@
+M;B`](#`-"B`@("`@("`@("`@(&9O<B!I(&EN(&UA=&-H.@T*("`@("`@("`@
+M("`@("`@(&EF(&DZ#0H@("`@("`@("`@("`@("`@("`@(&EF(&X@/3T@.#H-
+M"B`@("`@("`@("`@("`@("`@("`@("`@(&9I;F1K97ES*&DI#0H@("`@("`@
+M("`@("`@("`@("`@(&5L<V4Z#0H@("`@("`@("`@("`@("`@("`@("`@("!P
+M<FEN="!D97-C6VY=+"!I#0H@("`@("`@("`@("`@("`@("`@(&)R96%K#0H@
+M("`@("`@("`@("`@("`@;B`K/2`Q#0H@("`@96QS93H-"B`@("`@("`@<')I
+M;G0@)R<-"@T*#0ID968@9FEN9&ME>7,H:6YP*3H-"B`@("!G;&]B86P@:V5Y
+M=V]R9',-"B`@("!I9B!I;G`@:6X@:V5Y=V]R9',Z#0H@("`@("`@('!R:6YT
+M("=K97EW;W)D.B<L(&EN<`T*("`@(&5L<V4Z#0H@("`@("`@('!R:6YT("=I
+M9#HG+"!I;G`-"@T*#0II9B!?7VYA;65?7R`]/2`G7U]M86EN7U\G.@T*("`@
+M(&QI;F5S(#T@6UT-"B`@("!T<GDZ#0H@("`@("`@('=I=&@@;W!E;BAS>7,N
+M87)G=ELQ72P@)W(G*2!A<R!F:6QE.@T*("`@("`@("`@("`@<&%S<PT*("`@
+M("`@("`@("`@9F]R(&4@:6X@9FEL93H-"B`@("`@("`@("`@("`@("!L:6YE
+M<RYA<'!E;F0H92YR<W1R:7`H)UQN)RDI#0H@("`@("`@("`@("!F:6QE+F-L
+M;W-E*"D-"B`@("`@("`@9F]R(&QI;F4@:6X@;&EN97,Z#0H@("`@("`@("`@
+M("!I9B!L96XH;&EN92D@/B`Q.@T*("`@("`@("`@("`@("`@('!R:6YT("=)
+M;G!U=#H@)RP@;&EN90T*("`@("`@("`@("`@("`@(&QE>&EC86PH;&EN92D-
+M"B`@("`@("`@("`@("`@("!P<FEN="`G7&XG#0H@("`@97AC97!T.@T*("`@
+M("`@("!P<FEN="`G5&AI<R!P<F]G<F%M(&YE961S(&$@9FEL92!A<F=U;65N
+#="XG
+`
+end
+SHAR_EOF
+  (set 20 16 09 23 14 36 50 'f1.py'; eval "$shar_touch") &&
+  chmod 0750 'f1.py'
+if test $? -ne 0
+then ${echo} 'restore of f1.py failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'f1.py: MD5 check failed'
+       ) << \SHAR_EOF
+71161444a9adddd0720956c341a7bb4b  f1.py
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'f1.py'` -ne 3783 && \
+  ${echo} 'restoration warning:  size of f1.py is not 3783'
+  fi
+fi
+if rm -fr ${lock_dir}
+then ${echo} 'x - removed lock directory `'${lock_dir}\''.'
+else ${echo} 'x - failed to remove lock directory `'${lock_dir}\''.'
+  exit 1
+fi
+exit 0

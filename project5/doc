@@ -1,0 +1,42 @@
+*******************************************************************************
+
+Name: Rajan Pandya n00886248
+
+
+Class: COP4620 CONSTRUCTION OF LANGUAGE TRANSLATORS
+
+Project 5 Lex and YACC
+
+Files Included:
+
+1. p5.l (lex source file)
+2. p5.y (yacc source file)
+3. doc.txt (documentation file)
+4. doc (same as doc.txt)
+5. makefile 
+6. test (test file)
+
+
+How to run the Program:
+
+This program first needs to be compiled with "make" command. This will generate executable "p5". 
+"p5" can be run with a test file i.e ./p5 < test.
+
+
+General Discription:
+
+
+make command will generates following:	
+	run the yacc file with command yacc -d p5.y, and it generates y.tab.c
+	y.tab.c file is necessory to run the lex file
+	it runs the lex file with command lex p5.l, and it generates lex.yy.c
+	it then compiles both c files with gcc lex.yy.c y.tab.c -o p5 command, 
+	and generates executable p5.
+The test file can have strings of characters.
+The program will look for the strings that are part of the grammar from the project specification.
+The program will output "ACCEPT" if the string is part of the grammar, 
+			"REJECT" if the string is not part of the grammar.
+
+
+
+********************************************************************************

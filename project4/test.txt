@@ -1,0 +1,27 @@
+int f(int x, int r)
+{
+    r = r + x;
+    return r;
+}
+void main(void)
+{
+  int x;
+  int y;
+  int z;
+  int m;
+  m = f(y, z);
+   while(x + 3 * y > 5)
+   {
+     x = y + m / z;
+     if ( x +6 == z)
+      {
+        x = x + z;
+      }
+      else
+      {
+        z = z + x;
+      }
+     m = x - y + z * m / z;
+   }
+   return ;
+}

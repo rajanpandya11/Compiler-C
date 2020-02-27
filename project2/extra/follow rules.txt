@@ -1,0 +1,9 @@
+1. put $ as in follow set of the first rule
+2. start with 2nd index in rule's right till last one
+	their firsts is in the follow set of nonterms before them one step 
+3. if it is last symbol of the rule, and it is a non term,
+	then the follow of left of rule is also follow of right last of rule
+4. go from right last of the rule till you see a term or a nonterm without empty in first set,
+ 	if its a non terms that has empty in first set
+		then the follow of rule's left is follow of this one
+ 	

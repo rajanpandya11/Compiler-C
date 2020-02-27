@@ -1,0 +1,455 @@
+#!/bin/sh
+# This is a shell archive (produced by GNU sharutils 4.7).
+# To extract the files from this archive, save it to some FILE, remove
+# everything before the `#!/bin/sh' line above, then type `sh FILE'.
+#
+lock_dir=_sh17094
+# Made on 2016-12-01 20:54 EST by <n00886248@osprey.unfcsd.unf.edu>.
+# Source directory was `/home/48/n00886248/Compilers/proj5'.
+#
+# Existing files will *not* be overwritten, unless `-c' is specified.
+#
+# This shar contains:
+# length mode       name
+# ------ ---------- ------------------------------------------
+#     14 -rw-r--r-- test
+#   1278 -rw-r--r-- doc
+#   1278 -rw-r--r-- doc.txt
+#    156 -rw-r--r-- makefile
+#   1285 -rw-r--r-- p5.l
+#   1350 -rw-r--r-- p5.y
+#
+MD5SUM=${MD5SUM-md5sum}
+f=`${MD5SUM} --version | egrep '^md5sum .*(core|text)utils'`
+test -n "${f}" && md5check=true || md5check=false
+${md5check} || \
+  echo 'Note: not verifying md5sums.  Consider installing GNU coreutils.'
+save_IFS="${IFS}"
+IFS="${IFS}:"
+gettext_dir=FAILED
+locale_dir=FAILED
+first_param="$1"
+for dir in $PATH
+do
+  if test "$gettext_dir" = FAILED && test -f $dir/gettext \
+     && ($dir/gettext --version >/dev/null 2>&1)
+  then
+    case `$dir/gettext --version 2>&1 | sed 1q` in
+      *GNU*) gettext_dir=$dir ;;
+    esac
+  fi
+  if test "$locale_dir" = FAILED && test -f $dir/shar \
+     && ($dir/shar --print-text-domain-dir >/dev/null 2>&1)
+  then
+    locale_dir=`$dir/shar --print-text-domain-dir`
+  fi
+done
+IFS="$save_IFS"
+if test "$locale_dir" = FAILED || test "$gettext_dir" = FAILED
+then
+  echo=echo
+else
+  TEXTDOMAINDIR=$locale_dir
+  export TEXTDOMAINDIR
+  TEXTDOMAIN=sharutils
+  export TEXTDOMAIN
+  echo="$gettext_dir/gettext -s"
+fi
+if (echo "testing\c"; echo 1,2,3) | grep c >/dev/null
+then if (echo -n test; echo 1,2,3) | grep n >/dev/null
+     then shar_n= shar_c='
+'
+     else shar_n=-n shar_c= ; fi
+else shar_n= shar_c='\c' ; fi
+f=shar-touch.$$
+st1=200112312359.59
+st2=123123592001.59
+st2tr=123123592001.5 # old SysV 14-char limit
+st3=1231235901
+
+if touch -am -t ${st1} ${f} >/dev/null 2>&1 && \
+   test ! -f ${st1} && test -f ${f}; then
+  shar_touch='touch -am -t $1$2$3$4$5$6.$7 "$8"'
+
+elif touch -am ${st2} ${f} >/dev/null 2>&1 && \
+   test ! -f ${st2} && test ! -f ${st2tr} && test -f ${f}; then
+  shar_touch='touch -am $3$4$5$6$1$2.$7 "$8"'
+
+elif touch -am ${st3} ${f} >/dev/null 2>&1 && \
+   test ! -f ${st3} && test -f ${f}; then
+  shar_touch='touch -am $3$4$5$6$2 "$8"'
+
+else
+  shar_touch=:
+  echo
+  ${echo} 'WARNING: not restoring timestamps.  Consider getting and'
+  ${echo} 'installing GNU `touch'\'', distributed in GNU coreutils...'
+  echo
+fi
+rm -f ${st1} ${st2} ${st2tr} ${st3} ${f}
+#
+if test ! -d ${lock_dir}
+then : ; else ${echo} 'lock directory '${lock_dir}' exists'
+  exit 1
+fi
+if mkdir ${lock_dir}
+then ${echo} 'x - created lock directory `'${lock_dir}\''.'
+else ${echo} 'x - failed to create lock directory `'${lock_dir}\''.'
+  exit 1
+fi
+# ============= test ==============
+if test -f 'test' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING test (file already exists)'
+else
+${echo} 'x - extracting test (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'test' &&
+(S) [ COLOR ]
+SHAR_EOF
+  (set 20 16 11 30 17 11 15 'test'; eval "$shar_touch") &&
+  chmod 0644 'test'
+if test $? -ne 0
+then ${echo} 'restore of test failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'test: MD5 check failed'
+       ) << \SHAR_EOF
+61f40e5d9303141f831f1e23b8f6cfdc  test
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'test'` -ne 14 && \
+  ${echo} 'restoration warning:  size of test is not 14'
+  fi
+fi
+# ============= doc ==============
+if test -f 'doc' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING doc (file already exists)'
+else
+${echo} 'x - extracting doc (binary)'
+  sed 's/^X//' << 'SHAR_EOF' | uudecode &&
+begin 600 doc
+M*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ
+M*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*@T*#0I.86UE.B!2
+M86IA;B!086YD>6$@;C`P.#@V,C0X#0H-"@T*0VQA<W,Z($-/4#0V,C`@0T].
+M4U1254-424].($]&($Q!3D=504=%(%1204Y33$%43U)3#0H-"E!R;VIE8W0@
+M-2!,97@@86YD(%E!0T,-"@T*1FEL97,@26YC;'5D960Z#0H-"C$N('`U+FP@
+M*&QE>"!S;W5R8V4@9FEL92D-"C(N('`U+GD@*'EA8V,@<V]U<F-E(&9I;&4I
+M#0HS+B!D;V,N='AT("AD;V-U;65N=&%T:6]N(&9I;&4I#0HT+B!D;V,@*'-A
+M;64@87,@9&]C+G1X="D-"C4N(&UA:V5F:6QE(`T*-BX@=&5S="`H=&5S="!F
+M:6QE*0T*#0H-"DAO=R!T;R!R=6X@=&AE(%!R;V=R86TZ#0H-"E1H:7,@<')O
+M9W)A;2!F:7)S="!N965D<R!T;R!B92!C;VUP:6QE9"!W:71H(")M86ME(B!C
+M;VUM86YD+B!4:&ES('=I;&P@9V5N97)A=&4@97AE8W5T86)L92`B<#4B+B`-
+M"B)P-2(@8V%N(&)E(')U;B!W:71H(&$@=&5S="!F:6QE(&DN92`N+W`U(#P@
+M=&5S="X-"@T*#0I'96YE<F%L($1I<V-R:7!T:6]N.@T*#0H-"FUA:V4@8V]M
+M;6%N9"!W:6QL(&=E;F5R871E<R!F;VQL;W=I;F<Z"0T*"7)U;B!T:&4@>6%C
+M8R!F:6QE('=I=&@@8V]M;6%N9"!Y86-C("UD('`U+GDL(&%N9"!I="!G96YE
+M<F%T97,@>2YT86(N8PT*"7DN=&%B+F,@9FEL92!I<R!N96-E<W-O<GD@=&\@
+M<G5N('1H92!L97@@9FEL90T*"6ET(')U;G,@=&AE(&QE>"!F:6QE('=I=&@@
+M8V]M;6%N9"!L97@@<#4N;"P@86YD(&ET(&=E;F5R871E<R!L97@N>7DN8PT*
+M"6ET('1H96X@8V]M<&EL97,@8F]T:"!C(&9I;&5S('=I=&@@9V-C(&QE>"YY
+M>2YC('DN=&%B+F,@+6\@<#4@8V]M;6%N9"P@#0H)86YD(&=E;F5R871E<R!E
+M>&5C=71A8FQE('`U+@T*5&AE('1E<W0@9FEL92!C86X@:&%V92!S=')I;F=S
+M(&]F(&-H87)A8W1E<G,N#0I4:&4@<')O9W)A;2!W:6QL(&QO;VL@9F]R('1H
+M92!S=')I;F=S('1H870@87)E('!A<G0@;V8@=&AE(&=R86UM87(@9G)O;2!T
+M:&4@<')O:F5C="!S<&5C:69I8V%T:6]N+@T*5&AE('!R;V=R86T@=VEL;"!O
+M=71P=70@(D%#0T505"(@:68@=&AE('-T<FEN9R!I<R!P87)T(&]F('1H92!G
+M<F%M;6%R+"`-"@D)"2)214I%0U0B(&EF('1H92!S=')I;F<@:7,@;F]T('!A
+M<G0@;V8@=&AE(&=R86UM87(N#0H-"@T*#0HJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ
+M*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ
+2*BHJ*BHJ*BHJ*BHJ*BHJ*@T*
+`
+end
+SHAR_EOF
+  (set 20 16 12 01 20 52 15 'doc'; eval "$shar_touch") &&
+  chmod 0644 'doc'
+if test $? -ne 0
+then ${echo} 'restore of doc failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'doc: MD5 check failed'
+       ) << \SHAR_EOF
+0cdb288375a3d2597a3f2d819314d9aa  doc
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'doc'` -ne 1278 && \
+  ${echo} 'restoration warning:  size of doc is not 1278'
+  fi
+fi
+# ============= doc.txt ==============
+if test -f 'doc.txt' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING doc.txt (file already exists)'
+else
+${echo} 'x - extracting doc.txt (binary)'
+  sed 's/^X//' << 'SHAR_EOF' | uudecode &&
+begin 600 doc.txt
+M*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ
+M*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*@T*#0I.86UE.B!2
+M86IA;B!086YD>6$@;C`P.#@V,C0X#0H-"@T*0VQA<W,Z($-/4#0V,C`@0T].
+M4U1254-424].($]&($Q!3D=504=%(%1204Y33$%43U)3#0H-"E!R;VIE8W0@
+M-2!,97@@86YD(%E!0T,-"@T*1FEL97,@26YC;'5D960Z#0H-"C$N('`U+FP@
+M*&QE>"!S;W5R8V4@9FEL92D-"C(N('`U+GD@*'EA8V,@<V]U<F-E(&9I;&4I
+M#0HS+B!D;V,N='AT("AD;V-U;65N=&%T:6]N(&9I;&4I#0HT+B!D;V,@*'-A
+M;64@87,@9&]C+G1X="D-"C4N(&UA:V5F:6QE(`T*-BX@=&5S="`H=&5S="!F
+M:6QE*0T*#0H-"DAO=R!T;R!R=6X@=&AE(%!R;V=R86TZ#0H-"E1H:7,@<')O
+M9W)A;2!F:7)S="!N965D<R!T;R!B92!C;VUP:6QE9"!W:71H(")M86ME(B!C
+M;VUM86YD+B!4:&ES('=I;&P@9V5N97)A=&4@97AE8W5T86)L92`B<#4B+B`-
+M"B)P-2(@8V%N(&)E(')U;B!W:71H(&$@=&5S="!F:6QE(&DN92`N+W`U(#P@
+M=&5S="X-"@T*#0I'96YE<F%L($1I<V-R:7!T:6]N.@T*#0H-"FUA:V4@8V]M
+M;6%N9"!W:6QL(&=E;F5R871E<R!F;VQL;W=I;F<Z"0T*"7)U;B!T:&4@>6%C
+M8R!F:6QE('=I=&@@8V]M;6%N9"!Y86-C("UD('`U+GDL(&%N9"!I="!G96YE
+M<F%T97,@>2YT86(N8PT*"7DN=&%B+F,@9FEL92!I<R!N96-E<W-O<GD@=&\@
+M<G5N('1H92!L97@@9FEL90T*"6ET(')U;G,@=&AE(&QE>"!F:6QE('=I=&@@
+M8V]M;6%N9"!L97@@<#4N;"P@86YD(&ET(&=E;F5R871E<R!L97@N>7DN8PT*
+M"6ET('1H96X@8V]M<&EL97,@8F]T:"!C(&9I;&5S('=I=&@@9V-C(&QE>"YY
+M>2YC('DN=&%B+F,@+6\@<#4@8V]M;6%N9"P@#0H)86YD(&=E;F5R871E<R!E
+M>&5C=71A8FQE('`U+@T*5&AE('1E<W0@9FEL92!C86X@:&%V92!S=')I;F=S
+M(&]F(&-H87)A8W1E<G,N#0I4:&4@<')O9W)A;2!W:6QL(&QO;VL@9F]R('1H
+M92!S=')I;F=S('1H870@87)E('!A<G0@;V8@=&AE(&=R86UM87(@9G)O;2!T
+M:&4@<')O:F5C="!S<&5C:69I8V%T:6]N+@T*5&AE('!R;V=R86T@=VEL;"!O
+M=71P=70@(D%#0T505"(@:68@=&AE('-T<FEN9R!I<R!P87)T(&]F('1H92!G
+M<F%M;6%R+"`-"@D)"2)214I%0U0B(&EF('1H92!S=')I;F<@:7,@;F]T('!A
+M<G0@;V8@=&AE(&=R86UM87(N#0H-"@T*#0HJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ
+M*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ*BHJ
+2*BHJ*BHJ*BHJ*BHJ*BHJ*@T*
+`
+end
+SHAR_EOF
+  (set 20 16 12 01 20 52 02 'doc.txt'; eval "$shar_touch") &&
+  chmod 0644 'doc.txt'
+if test $? -ne 0
+then ${echo} 'restore of doc.txt failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'doc.txt: MD5 check failed'
+       ) << \SHAR_EOF
+0cdb288375a3d2597a3f2d819314d9aa  doc.txt
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'doc.txt'` -ne 1278 && \
+  ${echo} 'restoration warning:  size of doc.txt is not 1278'
+  fi
+fi
+# ============= makefile ==============
+if test -f 'makefile' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING makefile (file already exists)'
+else
+${echo} 'x - extracting makefile (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'makefile' &&
+p5: lex.yy.c y.tab.c
+X	gcc lex.yy.c y.tab.c -o p5
+X
+lex.yy.c: y.tab.c p5.l
+X	lex p5.l
+X
+y.tab.c: p5.y
+X	yacc -d p5.y
+X
+clean: 
+X	rm -f lex.yy.c y.tab.c y.tab.h p5
+SHAR_EOF
+  (set 20 16 11 30 10 05 01 'makefile'; eval "$shar_touch") &&
+  chmod 0644 'makefile'
+if test $? -ne 0
+then ${echo} 'restore of makefile failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'makefile: MD5 check failed'
+       ) << \SHAR_EOF
+eaaa0e9e8754f454f1349e51674eb08d  makefile
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'makefile'` -ne 156 && \
+  ${echo} 'restoration warning:  size of makefile is not 156'
+  fi
+fi
+# ============= p5.l ==============
+if test -f 'p5.l' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING p5.l (file already exists)'
+else
+${echo} 'x - extracting p5.l (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'p5.l' &&
+%{
+#include "y.tab.h"
+#include <stdio.h>
+#include <stdlib.h> 
+void yyerror(char*);
+int yyparse(void);
+%}
+X
+%%
+X
+X /* on reading this*/	/* do this*/	
+RENAME		return RENAME;
+AS			return AS;
+WHERE			return WHERE;
+UNION  		return UNION; 
+INTERSECT  		return INTERSECT; 
+MINUS			return MINUS;	
+TIMES			return TIMES;	
+JOIN			return JOIN;
+DIVIDEBY		return DIVIDEBY;
+CNO			return CNO;	
+CITY			return CITY;
+CNAME			return CNAME;	
+SNO			return SNO;
+PNO			return PNO;	
+TQTY			return TQTY;
+SNAME			return SNAME;
+QUOTA			return QUOTA;
+PNAME			return PNAME;
+COST			return COST;
+AVQTY			return AVQTY;
+S#			return SNUM;
+STATUS		return STATUS;
+P#			return PNUM;
+COLOR			return COLOR;
+WEIGHT		return WEIGHT;
+QTY			return QTY;
+S			return S;
+P			return P;
+SP			return SP;
+PRDCT			return PRDCT;
+CUST			return CUST;
+ORDERS		return ORDERS;
+","			return COMMA;
+"("			return OPENP;
+")"			return CLOSEP;
+"["			 return OPENB; 
+"]"			return CLOSEB;
+"<"	                return RELOP;
+">"                     return RELOP;
+"<="		return RELOP;
+">="                   return RELOP;
+"\="		return RELOP;
+"<>" 		return RELOP;
+[0-9]			return INTEGER;
+[ \t\n]			;
+X.			yyerror("REJECT\n");
+X
+%%
+X
+void yyerror(char* str)
+{
+X	fprintf(stderr,"REJECT\n");
+X	exit(1);
+}
+int yywrap(void)
+{
+X	return 1;
+}
+int main(void)
+{
+X	yyparse();
+}
+X
+SHAR_EOF
+  (set 20 16 11 30 17 10 45 'p5.l'; eval "$shar_touch") &&
+  chmod 0644 'p5.l'
+if test $? -ne 0
+then ${echo} 'restore of p5.l failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'p5.l: MD5 check failed'
+       ) << \SHAR_EOF
+c9adc79c7974bd14539b7d7fb5409ec9  p5.l
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'p5.l'` -ne 1285 && \
+  ${echo} 'restoration warning:  size of p5.l is not 1285'
+  fi
+fi
+# ============= p5.y ==============
+if test -f 'p5.y' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING p5.y (file already exists)'
+else
+${echo} 'x - extracting p5.y (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'p5.y' &&
+%{
+#include <stdio.h>
+#include <stdlib.h>
+extern int yylex();
+extern void yyerror (char*);
+%}
+X
+//tokens
+X
+%token RENAME AS WHERE UNION INTERSECT MINUS TIMES JOIN DIVIDEBY CNO CITY 
+%token CNAME SNO PNO TQTY OPENP CLOSEP RELOP COMMA
+%token SNAME QUOTA PNAME COST AVQTY SNUM STATUS PNUM COLOR WEIGHT QTY S P 
+%token SP PRDCT CUST ORDERS OPENB CLOSEB INTEGER
+X
+%%
+start : expression	{printf("ACCEPT\n"); }  /* YYACCEPT;}*/
+X	;
+expression : one_relation_expression | two_relation_expression 
+X	;
+one_relation_expression : renaming | restriction | projection
+X			;
+renaming : term RENAME attribute AS attribute
+X	;
+term : relation | OPENP expression CLOSEP 
+X	;
+restriction : term WHERE comparison
+X	;
+projection : term | term OPENB attribute_commalist CLOSEB
+X	;
+attribute_commalist : attribute | attribute COMMA attribute_commalist
+X	;
+two_relation_expression : projection binary_operation expression
+X	;
+binary_operation : UNION | INTERSECT | MINUS | TIMES | JOIN | DIVIDEBY
+X	;
+comparison :  attribute compare number
+X	;
+compare : RELOP
+X	;
+number : val | val number
+X	;
+val : INTEGER
+X	;
+attribute : CNO | CITY | CNAME | SNO | PNO | TQTY | 
+X		  SNAME | QUOTA | PNAME | COST | AVQTY |
+X		  SNUM | STATUS | PNUM | COLOR | WEIGHT | QTY
+X	;
+relation : S | P | SP | PRDCT | CUST | ORDERS
+X	;
+X
+/*
+int main(void)
+{
+X	yyparse();
+X	return 0;
+}
+X
+int yywrap(void)
+{
+X	return 1;
+}
+*/
+SHAR_EOF
+  (set 20 16 11 30 16 17 39 'p5.y'; eval "$shar_touch") &&
+  chmod 0644 'p5.y'
+if test $? -ne 0
+then ${echo} 'restore of p5.y failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'p5.y: MD5 check failed'
+       ) << \SHAR_EOF
+8acd9597e1edc7c6b4a1c1fb2fa43add  p5.y
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'p5.y'` -ne 1350 && \
+  ${echo} 'restoration warning:  size of p5.y is not 1350'
+  fi
+fi
+if rm -fr ${lock_dir}
+then ${echo} 'x - removed lock directory `'${lock_dir}\''.'
+else ${echo} 'x - failed to remove lock directory `'${lock_dir}\''.'
+  exit 1
+fi
+exit 0

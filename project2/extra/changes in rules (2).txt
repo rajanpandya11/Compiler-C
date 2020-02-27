@@ -1,0 +1,397 @@
+pgm():
+	return d-list()
+
+d-list():
+	call dclartn()
+	if true	return S()
+	else 	return false
+
+dclartn():
+	call type-specfr()
+	if true
+		accept ID
+		return M()
+	else	return false
+
+M():
+	if nt in firsts(var-dclartn):
+		return var-dclartn()
+	else if nt in firsts(fun-dclartn):
+		return fun-dclartn()
+	else
+		return false
+S():
+	if nt == @
+		return true
+	else nt in firsts(declartn)
+		call declartn()
+		if true	return s()
+		else	return false
+	else
+		return false
+
+var-dclartn():
+	return T()
+
+T():
+	if nt == ;
+		accept ;
+		return true	
+	else if nt == [
+		accept [
+		accept num
+		accept ]
+		accept ;
+		return true
+	else
+		return false
+
+fun-dclartn():
+	if nt == (
+		accept (
+		call params()
+		accept )
+		return compnd-stmt()
+	else
+		return false
+
+type-specfr():
+	if nt == int
+		accpet nt
+		return true
+	else nt == void
+		accept nt
+		return true
+
+params():
+	if nt == void
+		accept nt
+		return true
+	else
+		return param-list()
+		
+
+param-list():
+	call param()
+	if true	return A()
+	else	return false
+
+A():
+	if nt == [
+		accept [
+		call param()
+		if true	return A()
+		else	return false
+	else if nt == @
+		return true	
+
+param():
+	call type-specfr()
+	if true	accept ID
+		return B()
+	else	return false
+
+B():
+	if nt == [
+		accept [
+		accept ]
+		return true
+	else if nt == @
+		return true
+
+compnd-stmt():	
+	if nt == {
+		accept {
+		call local-dclartns()
+		if true	
+			call statmnt-list()
+			if true	
+				accept }
+				return true	
+			else	return false
+		else	return false
+	else
+		return false
+
+local-dclartns():
+	return C()
+
+C():
+	if nt == @
+		return true
+	else
+		call var-dclartn()
+		if true:
+			return C()
+statmnt-list():
+	return D()
+
+D():
+	if nt in firsts[statmnt]:
+		call statmnt()
+		return D()
+	else if nt == @
+		return true
+
+statmnt():
+	if nt in firsts(exprsn-stmt)
+		return exprsn-stmt()
+	else if nt in firsts(selctn-stmt)
+		return selctn-stmt()
+	else if nt in firsts(itertn-stmt)
+		return itertn-stmt()
+	else if nt in firsts(retrn-stmt)
+		return retrn-stmt()
+	else
+		return false
+
+exprsn-stmt():
+	if nt in firsts(exprsn)
+		return exprsn()
+	else if nt == ;
+		accept ;
+		return true
+	else
+		return false
+
+selctn-stmt():
+	if nt == if
+		accept if
+		accept (
+		call exprsn()
+		if true
+			accept )
+			return E()
+		else
+			return flase
+	else
+		return false
+
+E():
+	if nt == else
+		accept else
+		return statmnt()
+	else if nt == @
+		return true
+	else 
+		return false
+
+itertn-stmt():
+	if nt == while
+		accept while
+		accept (
+		call exprsn()
+		accept )
+		return statmnt()
+	else
+		return false
+
+retrn-stmt():
+	if nt ==return
+		accpet return
+		return F()
+	else
+		return false
+
+F():
+	if nt == ;
+		accept ;
+		return true
+	else nt in firsts(exprsn)
+		call exprsn()
+		accept ;
+	else
+		return false
+
+exprsn():
+	if nt in firsts(var)
+		call var()
+		accpet =
+		return exprsn()
+	else if nt in firsts(simple-exprsn)
+		return simple-exprsn()
+	else
+		return false
+	
+var():
+	if nt == id
+		accept id
+		return G()
+	else
+		return false
+
+G():
+	if nt == @
+		return true
+	else nt == [
+		accept [
+		call exprsn()
+		if true
+			accept ]
+			return true
+		else
+			return false
+	else
+		return false
+
+simple-exprsn():
+	if nt in firsts(add-exprsn)
+		call add-exprsn()
+		if true
+			return H()
+		else
+			return false
+	else
+		return false
+
+H():
+	if nt in firsts(relop)
+		call relop()
+		if true	return add-exprsn()
+		else	return false
+	else nt == @	return true
+	else	return false
+
+relop():
+	if nt == <
+		accept <
+		return K()
+	else if nt == >
+		accept >
+		return K()
+	else if nt == '='
+		accept =
+		accept =
+		return true
+	else if nt == !
+		accept !
+		accept =
+		return true
+	else	return false
+
+K():
+	if nt == '='
+		accept =
+		return true
+	else if nt == @
+		return true
+	else
+		return false
+
+add-exprsn():
+	if nt in firsts(term)
+		call term()
+		if true	return I()
+		else	return false
+	else	return false
+
+I():
+	if nt in firsts(addop)
+		if addop() true
+			if term() true
+				if I() true
+					return true
+				else	return false
+			else	return false
+		else	return false
+	else if nt == @
+		return true
+	else	return false
+
+addop():
+	if nt == +
+		accept +
+		return true
+	else if nt == -
+		accept -
+		return true
+	else	return false
+
+term():
+	if nt in firsts(factor)
+		if factor() true
+			if nt in firsts(L)
+				if L() true
+					return true
+				else	return false
+			else	return false
+		else	return false
+	else	return false
+
+L():
+	if nt in firsts(mulop)
+		if mulop() true
+			if nt in firsts(factor)
+				if factor() true
+					if nt in firsts(L)
+						if L() true
+							return true
+						else	return false
+					else	return false
+			else	return false
+	else if nt  == @
+		return true
+	else	return false
+
+mulop():
+	if nt == *
+		accept *
+		return true
+	else if nt == /
+		accept /
+		return true
+	else	return false			 
+
+factor():
+	if nt == (
+		accept (
+		if exprsn() true
+			accept )
+			return true
+		else	return false
+	else if nt in firsts(var)
+		return var()
+	else if nt in firsts(call)
+		return call()
+	else if nt == num
+		accept num
+		return  true
+	else	return false
+
+call():
+	if nt == id
+		accept id
+		accept (
+		if args() true
+			accept )
+			return true
+		else	return false
+	else	return false
+
+args():
+	if nt in firsts(arg-list)
+		if arg-list() true
+			return true
+		else	return false
+	else if nt == @
+		return true
+	else	return false
+
+arg-list():
+	if nt in firsts(exprsn)
+		if exprsn() true
+			if J() true
+				return true
+			else	return false
+		else	return false
+	else	return false
+
+J():
+	if nt == ,
+		accept ,
+		if exprsn() true
+			return J()
+		else	return false
+	else if nt == @
+		return true
+	else	return false

@@ -1,0 +1,48 @@
+*******************************************************************************
+
+Name: Rajan Pandya n00886248
+
+
+Class: COP4620 CONSTRUCTION OF LANGUAGE TRANSLATORS
+
+Project 2 Syntax Analyzer
+
+Files Included:
+
+1. f2.py (source file)
+2. lexical.py (source file)
+3. findcmnts.py (source file)
+2. makefile
+3. p2 (to run the source file)
+4. test.txt (test file)
+5. doc.txt (Documentation file) 
+6. sample.txt (output file for the given test file) 
+
+How to run the Program:
+
+This program, since python language is used, does not need to execute make command.
+This program can be executed by typing './p2 test'. 
+Instead of my test file, users can use their own text or linux file as an command line argument.
+
+
+General Discription:
+
+The f2.py accepts a file from command line. 
+It recognizes if the file is not provided in command line arguments, and prints a message.
+It splits the content from given file into many sentences and store them in an array. 
+One 'for loop' runs through that array, and calls a function named 'findcmnts' and 'lexical' with passing one line at a time. 
+The 'lexical' uses the string that is returned by 'findcmnts' function- after removing comments including nested ones.
+In 'findcmnts', there is a global variable named 'counter' which keeps track of the number of multiline comments.
+Upon receiving string from 'findcmnts', the 'lexical' applies different regular expressions on the string, and 
+	seperates them into tokens, and prints them.
+	i.e id, num, operators, parenthesis, keywords, etc.
+The 'lexical' uses the function 'findkeys' to seperate keywords from ids. 
+It calls 'findkeys' whenever it finds an id, and 'findkeys' determines and prints if it is an id or a keyword.
+Function 'findkeys' uses a global variable 'keywords' which has all the keywords stored in an array.
+The 'lexical' recognizes all different tokens and error, if any, and it prints them one by one in the same order they came.
+Upon receiving tokens from project 1, parse.py file goes through grammar rules of C- language via methods in class Parsing. 
+It has dictionaries to hold on to the firsts and follows of the grammar rule non-terminals. 
+The program uses the current token, firsts, and follows as a path to traverse through methods in the class. It has an object queue of class Queue to store all the tokens from project 1. 
+Once the current token is on first index of the queue, and it is $, ACCEPT is printed. Otherwise, REJECT is printed.
+
+********************************************************************************

@@ -1,0 +1,2 @@
+#!/bin/bash
+python f2.py $1

@@ -1,0 +1,44 @@
+1.first(pgm) = 'int', 'void'		follows={'$'}
+2.first(d-list) = 'int', 'void'		follows={'$'}
+3.first(A) = 'int', '', 'void'		follows={'$'}
+4.first(dclartn) = 'int', 'void'		follows={'int', 'void','$'}
+5.first(B) = '(', ';', '['			follows={'int', 'void','$'}
+6.first(var-dclartn) = ';', '['		follows={ 'return', '(', 'while', 'num', '{', ';', 'id', 'if','int', 'void','$',';', '[','int', 'void'}
+7.first(C) = ';', '['			follows={ 'int', 'void','$',';', '[','int', 'void'}
+8.first(fun-dclartn) = '('		follows={'int', 'void','$'}
+9.first(type-specfr) = 'int', 'void'	follows={'ID'}
+10.first(params) = 'int', 'void'		follows={')'}
+11.first(param-list) = 'int', 'void'	follows={')'}
+12.first(D) = '', ','			follows={')'}
+13.first(param) = 'int', 'void'		follows={',',')'}
+14.first(E) = '', '['			follows={',',')'}
+15.first(compnd-stmt) = '{'		follows={'int', 'void','$','return', '(', 'id', 'while', 'num', ';', '}','{', 'if'}
+16.first(local-dclartns) = '', ';', '['	follows={'return', '(', 'while', 'num', '{', ';', 'id', 'if'}
+17.first(F) = '', ';', '['			follows={'return', '(', 'while', 'num', '{', ';', 'id', 'if'}
+18.first(statmnt-list) = '', 'return', '(', 'while', 'num', '{', ';', 'id', 'if'	follows={'}'}
+19.first(G) = '', 'return', '(', 'id', 'while', 'num', ';', '{', 'if'		follows={'}'}
+20.first(statmnt) = 'while', 'num', 'return', '(', ';', '{', 'id', 'if'	follows={'return', '(', 'id', 'while', 'num', ';', '}','{', 'if','(', 'id', 'while', 'num', ';', '}','{', 'if'}
+21.first(exprsn-stmt) = '(', ';', 'num', 'id'		follows={'return', '(', 'id', 'while', 'num', ';', '}','{', 'if'}
+22.first(selctn-stmt) = 'if'			follows={'return', '(', 'id', 'while', 'num', ';', '}','{', 'if'}
+23.first(H) = '', 'else'				follows={'return', '(', 'id', 'while', 'num', ';', '}','{', 'if'}
+24.first(itertn-stmt) = 'while'			follows={'return', '(', 'id', 'while', 'num', ';', '}','{', 'if'}
+25.first(retrn-stmt) = 'return'			follows={'return', '(', 'id', 'while', 'num', ';', '}','{', 'if'}
+26.first(I) = '(', ';', 'num', 'id'			follows={'return', '(', 'id', 'while', 'num', ';', '}','{', 'if'}
+27.first(exprsn) = '(', 'num', 'id'		follows = {'return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+28.first(var) = 'id'			follows={'=','*', '/','+', '-','!', '', '=', '<', '>','!', '', '=', '<', '>',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']',';',',', ')',']',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+29.first(J) = '', '['			follows={'=','*', '/'}
+30.first(simple-exprsn) = '(', 'num', 'id'	follows = {';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+31.first(K) = '!', '', '=', '<', '>'		follows = {';',',', ')',']',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+32.first(relop) = '!', '=', '<', '>'		follows={'(', 'num', 'id'}
+33.first(L) = '', '='			follows={'(', 'num', 'id'}
+34.first(add-exprsn) = '(', 'num', 'id'	follows={'!', '', '=', '<', '>',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']',';',',', ')',']',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+35.first(M) = '', '+', '-'			follows={'!', '', '=', '<', '>','!', '', '=', '<', '>',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']',';',',', ')',']',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+36.first(addop) = '+', '-'		follows={'num', 'id'}
+37.first(term) = '(', 'num', 'id'		follows={ '+', '-','!', '', '=', '<', '>','!', '', '=', '<', '>',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']',';',',', ')',']',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+38.first(N) = '', '*', '/'			follows={ '+', '-','+', '-','!', '', '=', '<', '>','!', '', '=', '<', '>',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']',';',',', ')',']',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+39.first(mulop) = '*', '/'		follows={ '(', 'num', 'id'}
+40.first(factor) = '(', 'num', 'id'		follows={'+', '-','*', '/','+', '-','!', '', '=', '<', '>','!', '', '=', '<', '>',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']',';',',', ')',']',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+41.first(call) = 'id'			follows={'*', '/','+', '-','!', '', '=', '<', '>','!', '', '=', '<', '>',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']',';',',', ')',']',';',',', ')',']','return', '(', 'id', 'while', 'num', ';', '}','{', 'if',';',',', ')',']'}
+42.first(args) = '', '(', 'num', 'id'		follows={')'}
+43.first(arg-list) = '(', 'num', 'id'		follows={')'}
+44.first(O) = '', ','			follows={')'}
